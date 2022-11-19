@@ -20,12 +20,11 @@ end
 coded_p = string(zeros(N-1,N));
 coded_p(N-1,2) = 1;
 for (i = N-2:-1:1)
-    sorted_pn_string = string(sorted_pn); %tranform the matrix into string matrix
     x = find(sorted_pn(i,:) == smallest_elements(i,1)); %location of smallest p in previous row
     y = find(sorted_pn(i+1,:) == sumSmallest_p(i)); %location of sum of smallest elements
     for k = 1:N
       for f = find(sorted_pn(i+1,:))
-            if (strcmp(sorted_pn_string(i,k),sorted_pn_string(i+1,f)))
+            if (sorted_pn(i,k) == sorted_pn(i+1,f))
                  coded_p(i, k) = coded_p(i+1,f);
             end
       end
